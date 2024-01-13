@@ -1,0 +1,12 @@
+{
+  "origin_dir": "../dataset",
+  "label_name": [
+    "bird",
+    "cat",
+    "dog",
+    "snake"
+  ],
+  "train_data_path": "./preprocess/train.npy",
+  "test_data_path": "./preprocess/test.npy",
+  "train_ratio": 0.8
+}

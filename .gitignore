@@ -1,0 +1,10 @@
+.idea
+
+*.pyc
+*.pdf
+*.doc
+*.docx
+
+preprocess
+result
+dataset

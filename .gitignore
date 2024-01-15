@@ -5,6 +5,8 @@
 *.doc
 *.docx
 
-preprocess
 result
+
+preprocess
 dataset
+test

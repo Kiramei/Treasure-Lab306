@@ -6,15 +6,6 @@ import logging
 import numpy as np
 from alive_progress import alive_bar
 
-"""
-Divide the dataset into a training set and a test set, with no overlap. 
-In the test set, there should be at least 500 images per class. 
-The training set should have at least 3000 images per class. 
-It is recommended to convert all color images to grayscale 
-and resize all images to 256x256. 
-The following experiments are based on this training set and test set.
-"""
-
 
 class Config:
     def __init__(self, config_path='./config/config.json'):

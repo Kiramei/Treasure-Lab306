@@ -1,64 +1,57 @@
 import numpy as np
+import pandas as pd
 
 
 class PCA:
-    @staticmethod
-    def centralization(dataMat):
-        rows, cols = np.shape(dataMat)
-        mean_val = np.mean(dataMat, 0)  # 按列求均值，即求各个特征的均值
-        new_data = dataMat - np.tile(mean_val, (rows, 1))  # 减均值
-        return new_data, mean_val
+    def __init__(self, data, n_components=None, contrib=0.9):
+        """
+        Args:
+            data: 输入的样本 [样本数量， 维度]
+            n_components: 需要降维到的维度
+            contrib: 根据贡献度自动提取维度
+        """
+        self.data = data
+        self.dimension = data.shape[1]
+        self.n_components = n_components
+        self.contribution = contrib
+        if n_components and n_components >= self.dimension:
+            raise ValueError("n_components error")
+        if contrib > 1:
+            raise ValueError("contribution error")
 
-    @staticmethod
-    def patch(data, _k):
-        dataMat = np.float32(np.mat(data))  # 变矩阵
-        # 中心化
-        A, _meanVal = PCA.centralization(dataMat)
-        # 协方差矩阵
-        covMat = A * A.T
-        D, V = np.linalg.eig(covMat)
-        # 降维后
-        _V_r = V[:, 0:_k]  # 按列取前r个特征向量
-        _V_r = A.T * _V_r
-        for _i in range(_k):
-            _V_r[:, _i] = _V_r[:, _i] / np.linalg.norm(_V_r[:, _i])  # 归一化
-        final_data = A * _V_r
-        final_data = np.array(np.real(final_data))
-        return final_data, _meanVal, _V_r
+    def compute_covariance(self):
+        data_T = self.data.T
+        covariance_matrix = np.cov(data_T)
+        return covariance_matrix
 
-    def __init__(self, train_data, test_data):
-        self.train_data = train_data
-        self.test_data = test_data
+    def compute_eigenvalues_eigenvectors(self):
+        covariance_matrix = self.compute_covariance()
+        eigenvalues, eigenvectors = np.linalg.eig(covariance_matrix)
+        m = eigenvalues.shape[0]
+        combined = np.hstack((eigenvalues.reshape((m, 1)), eigenvectors))
+        combined_df = pd.DataFrame(combined)
+        combined_df_sorted = combined_df.sort_values(0, ascending=False)
+        return combined_df_sorted
 
+    def explained_variance_ratio(self):
+        combined_df_sorted = self.compute_eigenvalues_eigenvectors()
+        eigenvalues = combined_df_sorted.values[:, 0]
+        explained_variance_ratio = eigenvalues / np.sum(eigenvalues)
+        return explained_variance_ratio
 
-if __name__ == '__main__':
-    k = 8
-    while True:
-        if k == 128:
-            break
-        r = np.load('../preprocess/train_lbp.npy', allow_pickle=True)
-        s = np.load('../preprocess/test_lbp.npy', allow_pickle=True)
+    def reduce_dimension(self):
+        combined_df_sorted = self.compute_eigenvalues_eigenvectors()
 
-        train_data = r[:, 0]
-        train_label = r[:, 1]
-        test_data = s[:, 0]
-        test_label = s[:, 1]
-        train_data = np.array([x.flatten() for x in train_data])
-        test_data = np.array([x.flatten() for x in test_data])
-        print(train_data.shape)
-        print(test_data.shape)
-        train_data, meanVal, V_r = PCA.patch(train_data, k)
-        test_data, meanVal_, V_r_ = PCA.patch(test_data, k)
-        print(train_data.shape)
-        print(test_data.shape)
-        train_data_parsed = []
-        test_data_parsed = []
-        for i in range(len(train_data)):
-            train_data_parsed.append([train_data[i], train_label[i]])
-        for i in range(len(test_data)):
-            test_data_parsed.append([test_data[i], test_label[i]])
-        # save
-        np.save(f'../preprocess/train_pca_{k}.npy', np.asarray(train_data_parsed, dtype=object), allow_pickle=True)
-        np.save(f'../preprocess/test_pca_{k}.npy', np.asarray(test_data_parsed, dtype=object), allow_pickle=True)
-        print('Saved!')
-        k *= 2
+        if self.n_components:
+            eigenvectors = combined_df_sorted.values[0:self.n_components, 1:]
+            projected_data = np.dot(eigenvectors, self.data.T)
+            return projected_data.T, eigenvectors
+
+        explained_variance_ratio = self.explained_variance_ratio()
+
+        cumulative_variance_ratio = np.cumsum(explained_variance_ratio)
+        dimension = np.argmax(cumulative_variance_ratio >= self.contribution) + 1
+
+        eigenvectors = combined_df_sorted.values[0:dimension, 1:]
+        projected_data = np.dot(eigenvectors, self.data.T)
+        return projected_data.T, eigenvectors

@@ -1,0 +1,9 @@
+numpy
+numba
+pandas
+Pillow
+joblib
+matplotlib
+scikit-learn
+opencv-python
+alive_progress

@@ -1,0 +1,5 @@
+# name      Gym   Eng   Math  Phy
+xiaoming    85    90    93    88
+xiaohong    75    95    80    90
+xiaojun     95    80    85    70
+

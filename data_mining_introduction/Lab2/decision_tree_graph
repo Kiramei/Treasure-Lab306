@@ -1,0 +1,23 @@
+digraph {
+	<__main__.DecisionNode object at 0x0000018206EF6588> [label="perimeter_mean
+<= 117.19999694824219"]
+	<__main__.DecisionNode object at 0x000001820758C630> [label="concave points_worst
+<= 0.17499999701976776"]
+	<__main__.DecisionNode object at 0x0000018206EF6588> -> <__main__.DecisionNode object at 0x000001820758C630> [label=True]
+	<__main__.DecisionNode object at 0x000001820758C668> [label="concave points_mean
+<= 0.0853400006890297"]
+	<__main__.DecisionNode object at 0x000001820758C630> -> <__main__.DecisionNode object at 0x000001820758C668> [label=True]
+	<__main__.DecisionNode object at 0x0000018206F44F98> [label="Diagnose: B"]
+	<__main__.DecisionNode object at 0x000001820758C668> -> <__main__.DecisionNode object at 0x0000018206F44F98> [label=True]
+	<__main__.DecisionNode object at 0x0000018276316748> [label="Diagnose: M"]
+	<__main__.DecisionNode object at 0x000001820758C668> -> <__main__.DecisionNode object at 0x0000018276316748> [label=False]
+	<__main__.DecisionNode object at 0x000001820758C5F8> [label="Diagnose: M"]
+	<__main__.DecisionNode object at 0x000001820758C630> -> <__main__.DecisionNode object at 0x000001820758C5F8> [label=False]
+	<__main__.DecisionNode object at 0x0000018275F204E0> [label="compactness_mean
+<= 0.06216999888420105"]
+	<__main__.DecisionNode object at 0x0000018206EF6588> -> <__main__.DecisionNode object at 0x0000018275F204E0> [label=False]
+	<__main__.DecisionNode object at 0x000001820758C5C0> [label="Diagnose: B"]
+	<__main__.DecisionNode object at 0x0000018275F204E0> -> <__main__.DecisionNode object at 0x000001820758C5C0> [label=True]
+	<__main__.DecisionNode object at 0x000001820758C6D8> [label="Diagnose: M"]
+	<__main__.DecisionNode object at 0x0000018275F204E0> -> <__main__.DecisionNode object at 0x000001820758C6D8> [label=False]
+}

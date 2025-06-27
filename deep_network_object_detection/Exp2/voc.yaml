@@ -1,0 +1,9 @@
+path: ./data/VOCdevkit/VOC2007  # 根路径
+train: ImageSets/Main/train.txt
+val: ImageSets/Main/val.txt
+
+nc: 20  # 类别数
+names:
+  ['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car',
+   'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike',
+   'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor']

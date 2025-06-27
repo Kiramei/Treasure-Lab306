@@ -1,25 +1,34 @@
-# Introduction 
+# 🌟 AI Course Collection Hub — For Learners, By a Learner
 
-> The repo is ongoing, I think...
+> *“Still growing, still learning — and so is this repository.”*
 
-### This Repo is for those students struggling for the AI courses.
+### 🎓 Welcome to the ultimate resource archive tailored for students navigating the complexities of Artificial Intelligence courses.
 
-### All code I've written has been updated to this repo.
+All source code from my coursework has been meticulously organized and uploaded to this repository — battle-tested, concept-aligned, and ready to guide your exploration.
 
-### However, any doc is not provided in this repo, so try it yourself.
+📌 **Note:** Documentation is intentionally omitted. This is a hands-on journey — dive in, experiment, and discover insights on your own.
 
-**Till Nov 7th, 2024, the courses are listed as follows:**
+------
 
-| Course Name                            | Due Term                          |
-| -------------------------------------- | --------------------------------- |
-| Python Superior Programing             | Undergraduate Year 2, Fall Term   |
-| OpenCV Project Practice                | Undergraduate Year 2, Fall Term   |
-| Data Mining Introduction               | Undergraduate Year 2, Fall Term   |
-| Artificial Intelligence                | Undergraduate Year 2, Spring Term |
-| Deep Learning Algorithm Theory         | Undergraduate Year 2, Spring Term |
-| Deep Learning Framework Implementation | Undergraduate Year 2, Spring Term |
+## 🗂️ Course Coverage (As of *November 7th, 2024*)
 
-> Most Dataset should have been given by your faculties, I suppose.
+| 📘 Course Title                                        | 🎓 Academic Term                           |
+| ----------------------------------------------------- | ----------------------------------------- |
+| Python Superior Programming                           | 2nd Year, Fall Semester (Undergraduate)   |
+| OpenCV Project Practice                               | 2nd Year, Fall Semester (Undergraduate)   |
+| Data Mining Introduction                              | 2nd Year, Fall Semester (Undergraduate)   |
+| Artificial Intelligence                               | 2nd Year, Spring Semester (Undergraduate) |
+| Deep Learning Algorithm Theory                        | 2nd Year, Spring Semester (Undergraduate) |
+| Deep Learning Framework Implementation                | 2nd Year, Spring Semester (Undergraduate) |
+| Transfer Learning                                     | 3rd Year, Spring Semester (Undergraduate) |
+| Deep Network Object Detection                         | 3rd Year, Spring Semester (Undergraduate) |
+| Machine Vision Technology and Industrial Applications | 3rd Year, Spring Semester (Undergraduate) |
+| Information Theory and Encoding Technology            | 3rd Year, Spring Semester (Undergraduate) |
+
+> 📂 *Datasets are generally distributed by course instructors. Please consult your course materials accordingly.*
+
+------
+
+## 🚀 Invest Your Time Wisely — Build What Matters.
 
 # MAKE YOUR TIME FOR A BETTER CHOICE !
-

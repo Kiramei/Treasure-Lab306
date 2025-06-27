@@ -10,7 +10,7 @@ All source code from my coursework has been meticulously organized and uploaded 
 
 ------
 
-## 🗂️ Course Coverage (As of *November 7th, 2024*)
+## 🗂️ Course Coverage (As of *June 27th, 2025*)
 
 | 📘 Course Title                                        | 🎓 Academic Term                           |
 | ----------------------------------------------------- | ----------------------------------------- |
